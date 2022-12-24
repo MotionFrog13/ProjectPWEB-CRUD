@@ -1,0 +1,46 @@
+.App {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.listView {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.TextField {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid rgb(126, 122, 122);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+Button {
+  width: 100%;
+  background-color: #105cd4;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+table {
+  background-color: rgb(255, 255, 255);
+  width: 75%;
+  margin: auto;
+  text-align: center;
+}
+
+Form {
+  margin:auto;
+  width: 50%;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 20px;
+}
