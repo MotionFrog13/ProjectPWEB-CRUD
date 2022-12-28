@@ -4,7 +4,7 @@ class App extends Component{
   constructor(){
     super();
     this.state={
-      title : "Data Mahasiswa",
+      title : "Data Mahasiswa 3IA11",
       employeeData : [],
       act : 0,
       index : ''
@@ -14,6 +14,7 @@ class App extends Component{
   handleSubmit= (ece) => {
     ece.preventDefault();
     let employeeData = this.state.employeeData;
+    let npm = this.refs.txtNpm.value;
     let nama = this.refs.txtNama.value;
     let tglLahir = this.refs.txtTL.value;
     let agama = this.refs.txtAgama.value;
@@ -23,6 +24,7 @@ class App extends Component{
     if(this.state.act === 0)
     {
       let newEmployee = {
+        "npm" : npm,
         "nama" : nama,
         "tglLahir" : tglLahir,
         "agama" : agama,
@@ -34,6 +36,7 @@ class App extends Component{
     else
     {
       let index= this.state.index;
+      employeeData[index].npm = npm;
       employeeData[index].nama = nama;
       employeeData[index].tglLahir = tglLahir;
       employeeData[index].agama = agama;
@@ -53,6 +56,7 @@ class App extends Component{
 
   handleEdit = (i) =>{
     let employeeData = this.state.employeeData[i];
+    this.refs.txtNpm.value = employeeData.npm;
     this.refs.txtNama.value = employeeData.nama;
     this.refs.txtTL.value = employeeData.tglLahir;
     this.refs.txtAgama.value = employeeData.agama;
@@ -80,6 +84,8 @@ class App extends Component{
       
       <form ref="myForm">
       <h1>{this.state.title}</h1>
+        <label>Nomor Pokok Mahasiswa</label>
+        <input type="number" ref="txtNpm" placeholder="Masukkan NPM" className="TextField"/>
         <label>Nama</label>
         <input type="text" ref="txtNama" placeholder="Masukkan Nama" className="TextField"/>
         <label>Tanggal lahir</label>
@@ -94,6 +100,7 @@ class App extends Component{
       </form>
       <table>
         <tr>
+          <th>NPM</th>
           <th>Nama</th>
           <th>Tanggal lahir</th>
           <th>Agama</th>
@@ -103,6 +110,7 @@ class App extends Component{
         {
           employeeData.map( (data, i) =>
           <tr key={i}>
+            <td>{data.npm}</td>
             <td>{data.nama}</td>
             <td>{data.tglLahir}</td>
             <td>{data.agama}</td>
